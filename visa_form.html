@@ -1,0 +1,263 @@
+<!-- Passsport Form -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Visa Form</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+  	/* Class for placement of error messages for jQuery Validate */
+	.errorMessage {
+	     font-size: 18px;
+	}
+	.errorMessage i,
+	.errorMessage [class^="mdi-"], .breadcrumb [class*="mdi-"],
+	.errorMessage i.material-icons {
+	    display: inline-block;
+	    float: left;
+	    font-size: 24px;
+	}
+	.errorMessage:before {
+	    color: rgba(255, 255, 255, 0.7);
+	    vertical-align: top;
+	    display: inline-block;
+	    font-family: 'Material Icons';
+	    font-weight: normal;
+	    font-style: normal;
+	    font-size: 25px;
+	    margin: 0 10px 0 8px;
+	    -webkit-font-smoothing: antialiased;
+	}
+	.errorMessage:first-child:before {
+	    display: none;
+	}
+
+
+	.invalid {
+		color: red;
+		font-size: 1em;
+	}
+  </style>
+</head>
+<body>
+<div class="grey lighten-3 visa_image1">
+	
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="header">
+					<h1 class="center">Visa Application</h1>
+				</div>
+					  <div class="row">
+						<form class="col s12" id="VisaForm" action="Visa_validate.asp" method="POST">
+						  <div class="row">
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">account_circle</i>
+							  <input id="fname" type="text" class="validate" name="fname2">
+							  <label for="fname">First Name</label>
+							</div>
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">account_circle</i>
+							  <input id="lname" type="text" class="validate" name="lname2">
+							  <label for="lname">Last Name</label>
+							</div>
+						  </div>
+						 </div>
+						    <div class="row">
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">phone</i>
+								  <input id="mobile" type="text" name="mobile2" class="validate">
+								  <label for="mobile">Mobile No </label>
+								</div>
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">email</i>
+								  <input id="em1" type="text" class="validate" name="em2">
+								  <label for="em1">Email </label>     <!-- If Above 18 ,Validate !-->
+								</div>
+						  </div>
+						   <div class="row">
+									<div class="input-field col s12 m8 l6">
+									<i class="material-icons prefix">reorder</i>
+									  <textarea id="textarea1" class="materialize-textarea validate" name="address2"></textarea>
+										<label for="textarea1">Address</label>
+									</div>
+				
+									<div class="input-field col s12 m8 l6">
+										<i class="material-icons prefix">perm_identity</i>
+										 <label for="gender">Gender</label>
+										 <br>
+										  <input name="grp1" type="radio" id="r1">
+										  <label for="r1">Male</label>
+
+										  <input name="grp1" type="radio" id="r2">
+										  <label for="r2">Female</label>
+										
+									</div>
+							</div>
+						  <div class="row">
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">perm_identity</i>
+								  <input id="dob" type="date" class="datepicker validate" name="dob2">
+
+								  <label for="dob">Date Of Birth </label>
+								</div>
+								<div class="input-field col s12 m8 l6">
+									<select>
+									  <option value="Passport" class="selected" name="vtype2">Select</option>
+									  <option value="1">Business Visa</option>
+									  <option value="2">Tourist Visa</option>
+									</select>
+									<label>Visa Type</label>
+								 </div>
+						  </div>
+						  <div class="row">
+								<div class="input-field col s12 m8 l6">
+									<i class="material-icons prefix">comment</i>
+									<select name="country2">
+									  <option value="Visa" selected>Select</option>
+									  <option value="1">United Kingdom</option>
+									  <option value="2">France</option>
+									  <option value="3">New Zealand</option>
+									  <option value="4">United States of America</option>
+									  <option value="5">Germany</option>
+									  <option value="6">Canada</option>
+									  <option value="7">United Arab Emirates</option>
+									</select>
+									<label>Country</label>
+								 </div>
+								 <div class="input-field col s12 m8 l6">
+									<i class="material-icons prefix">comment</i>
+										<input id="em1" type="text" class="validate" name="city2">
+										<label for="city">City</label>
+								 </div>
+						  </div>
+						  <div class="row">
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">comment</i>
+								  <input id="em1" type="text" class="validate" name="acn2">
+								  <label for="em1">Aadhar Card No </label>
+								</div>
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">offline_pin</i>
+								  <input id="pancard" type="text" class="validate" name="pcn2">
+								  <label for="pancard" class="iconstyle">Pan Card No </label>
+								</div>
+						  </div>
+						  <div class="row center-align" style="padding-left:150>
+							<div class="col s12 m8 l6">
+								<h5><button type="submit" class="waves-effect waves-light btn">Submit</a></h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 m6 l12">
+								<h5><a href="index.html" class="waves-effect waves-light btn"> Back To HomePage</h5></a>
+							</div>
+						  </div>
+						</form>
+					  </div>
+				
+			</div>
+		</div>
+	
+</div>
+	
+	  <!--  Scripts-->
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/additional-methods.min.js"></script>
+
+  <script src="js/init.js"></script>
+	
+
+	<script>
+	//JQuery Select Option
+	  $(document).ready(function() {
+    $('select').material_select();
+  });
+	
+	//jQuery Validate defaults
+        jQuery.validator.setDefaults({
+            errorClass: 'errorMessage invalid',
+            validClass: "valid",
+            errorElement : 'div',
+            errorPlacement: function(error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+		
+		 //Text Fields
+		$(document).ready(function() {
+			Materialize.updateTextFields();
+		});
+		
+		//Date Picker
+		$(document).ready(function() {
+			 $('.datepicker').pickadate({
+			    selectMonths: true, // Creates a dropdown to control month
+			    selectYears: 100 // Creates a dropdown of 15 years to control year
+			  });
+       
+
+			$("#VisaForm").validate({
+	            rules: {
+	                fname2:  {
+	                    required: true,
+	                    pattern: /^[a-zA-Z ]+$/,
+	                    maxlength: 16
+	                },
+	                lname2:  {
+	                    required: true,
+	                    pattern: /^[a-zA-Z ]+$/,
+	                    maxlength: 16
+	                },
+	                mobile2: {
+	                    required: true,
+	                    digits: true,
+						minlength: 10,
+	                    maxlength: 10
+	                },
+					em2: {
+	                    required: true,
+	                    email: true,
+	                    pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	                    maxlength: 64
+	                },
+					address2:  {
+	                    required: true,
+	                    maxlength: 56
+	                },
+	                dob2:  {
+	                    required: true
+	                },
+	                acn2: {
+	                    required: true,
+						digits:true,
+	                    maxlength: 64
+	                },
+					pcn2: {
+	                    required: true,
+	                    email: true,
+	                    pattern: /^[a-zA-Z0-9]+$/,
+	                    maxlength: 64
+	                }
+	            }
+	        });
+		});
+		
+			
+	</script>	
+</body>
+</html>

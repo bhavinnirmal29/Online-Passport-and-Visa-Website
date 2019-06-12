@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SignUp</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Online Passport And Visa System</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+  	/* Class for placement of error messages for jQuery Validate */
+	.errorMessage {
+	     font-size: 18px;
+	}
+	.errorMessage i,
+	.errorMessage [class^="mdi-"], .breadcrumb [class*="mdi-"],
+	.errorMessage i.material-icons {
+	    display: inline-block;
+	    float: left;
+	    font-size: 24px;
+	}
+	.errorMessage:before {
+	    color: rgba(255, 255, 255, 0.7);
+	    vertical-align: top;
+	    display: inline-block;
+	    font-family: 'Material Icons';
+	    font-weight: normal;
+	    font-style: normal;
+	    font-size: 25px;
+	    margin: 0 10px 0 8px;
+	    -webkit-font-smoothing: antialiased;
+	}
+	.errorMessage:first-child:before {
+	    display: none;
+	}
+
+
+	.invalid {
+		color: red;
+		font-size: 1em;
+	}
+  </style>
+</head>
+<body>
+<div class="grey lighten-3 sign_up">
+	
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="header">
+					<h1 class="center">Sign Up</h1>
+				</div>
+					  <div class="row">
+						<form class="col s12" id="signupForm" action="validate.asp" method="POST">
+						  <div class="row">
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">account_circle</i>
+							  <input id="fname" type="text" class="validate" name="fname">
+							  <label for="fname">First Name</label>
+							</div>
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">account_circle</i>
+							  <input id="lname" type="text" class="validate" name="lname">
+							  <label for="lname">Last Name</label>
+							</div>
+						  </div>
+						    <div class="row">
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">phone</i>
+							  <input id="mobile" type="text" name="mobile" class="validate" class="phone_no">
+							  <label for="mobile">Phone No </label>
+							</div>
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">perm_identity</i>
+							  <input id="dob" type="date" class="datepicker validate" name="dob">
+							  <label for="dob">Date Of Birth</label>     <!-- If Above 18 ,Validate !-->
+							</div>
+						  </div>
+						  <div class="row">
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">email</i>
+							  <input id="em1" type="text" class="validate" name="em1">
+							  <label for="em1">Email</label>
+							</div>
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">fingerprint</i>
+							  <input id="password" type="password" class="validate" name="password">
+							  <label for="password" class="iconstyle">Password</label>
+							</div>
+						  </div>
+						   <div class="row center-align">
+							<div class="col s12 m6 l12">
+								<h5><button type="submit" class="waves-effect waves-light btn" >Sign up</a></h5>
+							</div>
+						  <div class="row center-align">
+							<div class="col s12 m6 l12">
+								<h5>Already Have An Account? <a href="login.html" >Login</a></h5><br>
+								<h5><a href="index.html" class="waves-effect waves-light btn"> Back To HomePage</h5></a>
+							</div>
+						  </div>
+						</form>
+					  </div>
+				
+			</div>
+		</div>
+	
+</div>
+	
+	  <!--  Scripts-->
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/additional-methods.min.js"></script>
+
+  <script src="js/init.js"></script>
+	
+
+	<script>
+	//jQuery Validate defaults
+        jQuery.validator.setDefaults({
+            errorClass: 'errorMessage invalid',
+            validClass: "valid",
+            errorElement : 'div',
+            errorPlacement: function(error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+		 
+		$(document).ready(function() {
+			Materialize.updateTextFields();
+
+			 $('.datepicker').pickadate({
+			    selectMonths: true, // Creates a dropdown to control month
+			    selectYears: 100 // Creates a dropdown of 15 years to control year
+			  });
+       
+
+			$("#signupForm").validate({
+	            rules: {
+	                fname:  {
+	                    required: true,
+	                    pattern: /^[a-zA-Z ]+$/,
+	                    maxlength: 16
+	                },
+	                lname:  {
+	                    required: true,
+	                    pattern: /^[a-zA-Z ]+$/,
+	                    maxlength: 16
+	                },
+	                mobile: {
+	                    required: true,
+	                    digits: true,
+	                    minlength: 10,
+	                    maxlength: 10
+	                },
+	                dob:  {
+	                    required: true
+	                },
+	                em1: {
+	                    required: true,
+	                    email: true,
+	                    pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	                    maxlength: 64
+	                },	                
+	                password: {
+	                    required: true,
+	                    minlength: 6,
+	                    maxlength: 32
+	                }
+	            }
+	        });
+		});
+		
+			
+	</script>	
+</body>
+</html>

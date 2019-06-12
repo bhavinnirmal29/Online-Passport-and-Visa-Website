@@ -1,0 +1,242 @@
+<!-- Passsport Form -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Passport Form</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+  	/* Class for placement of error messages for jQuery Validate */
+	.errorMessage {
+	     font-size: 18px;
+	}
+	.errorMessage i,
+	.errorMessage [class^="mdi-"], .breadcrumb [class*="mdi-"],
+	.errorMessage i.material-icons {
+	    display: inline-block;
+	    float: left;
+	    font-size: 24px;
+	}
+	.errorMessage:before {
+	    color: rgba(255, 255, 255, 0.7);
+	    vertical-align: top;
+	    display: inline-block;
+	    font-family: 'Material Icons';
+	    font-weight: normal;
+	    font-style: normal;
+	    font-size: 25px;
+	    margin: 0 10px 0 8px;
+	    -webkit-font-smoothing: antialiased;
+	}
+	.errorMessage:first-child:before {
+	    display: none;
+	}
+
+
+	.invalid {
+		color: red;
+		font-size: 1em;
+	}
+  </style>
+</head>
+<body>
+<div class="grey lighten-3 sign_up">
+	
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="header">
+					<h1 class="center">Passport Application</h1>
+				</div>
+					  <div class="row">
+						<form class="col s12" id="PassportForm" action="Passport_validate.asp" method="POST">
+						  <div class="row">
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">account_circle</i>
+							  <input id="fname" type="text" class="validate" name="fname1">
+							  <label for="fname">First Name</label>
+							</div>
+							<div class="input-field col s12 m8 l6">
+							  <i class="material-icons prefix">account_circle</i>
+							  <input id="lname" type="text" class="validate" name="lname1">
+							  <label for="lname">Last Name</label>
+							</div>
+						  </div>
+						 </div>
+						    <div class="row">
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">phone</i>
+								  <input id="mobile" type="text" name="mobile1" class="validate">
+								  <label for="mobile">Mobile No </label>
+								</div>
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">email</i>
+								  <input id="email01" type="email" class="validate" name="em1">
+								  <label for="em1">Email </label>     <!-- If Above 18 ,Validate !-->
+								</div>
+						  </div>
+						   <div class="row">
+									<div class="input-field col s12 m8 l6">
+									<i class="material-icons prefix">reorder</i>
+									  <textarea id="textarea1" class="materialize-textarea validate" name="address1"></textarea>
+										<label for="textarea1">Address</label>
+									</div>
+				
+									<div class="input-field col s12 m8 l6">
+										<i class="material-icons prefix">perm_identity</i>
+										 <label for="gender">Gender</label>
+										 <br>
+										  <input name="grp1" type="radio" id="r1">
+										  <label for="r1">Male</label>
+
+										  <input name="grp1" type="radio" id="r2">
+										  <label for="r2">Female</label>
+										
+									</div>
+							</div>
+						  <div class="row">
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">perm_identity</i>
+								  <input id="dob" type="date" class="datepicker validate" name="dob1">
+
+								  <label for="em1">Date Of Birth </label>
+								</div>
+								<div class="input-field col s12 m8 l6">
+									<select name="gender1">
+									  <option value="Passport">Select</option>
+									  <option value="1">Normal</option>
+									  <option value="2">Renewal</option>
+									</select>
+									<label>Passport Type</label>
+								 </div>
+						  </div>
+						  <div class="row">
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">comment</i>
+								  <input id="em1" type="number" class="validate" name="acn1">
+								  <label for="em1">Aadhar Card No </label>
+								</div>
+								<div class="input-field col s12 m8 l6">
+								  <i class="material-icons prefix">comment</i>
+								  <input id="pass01" type="text" class="validate" name="pcn1">
+								  <label for="password" class="iconstyle">Pan Card No </label>
+								</div>
+						  </div>
+						  <div class="row center-align">
+							<div class="col s12 m6 l12">
+								<h5><button type="submit" class="waves-effect waves-light btn" >Submit</a></h5>
+							</div>
+							<div class="col s12 m6 l12">
+								<h5><a href="index.html" class="waves-effect waves-light btn"> Back To HomePage</h5></a>
+							</div>
+						  </div>
+						  
+						</form>
+					  </div>
+				
+			</div>
+		</div>
+	
+</div>
+	
+	  <!--  Scripts-->
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/additional-methods.min.js"></script>
+
+  <script src="js/init.js"></script>
+	
+
+	<script>
+	//JQuery Select Option
+	  $(document).ready(function() {
+    $('select').material_select();
+  });
+	
+	//jQuery Validate defaults
+        jQuery.validator.setDefaults({
+            errorClass: 'errorMessage invalid',
+            validClass: "valid",
+            errorElement : 'div',
+            errorPlacement: function(error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+		 
+		$(document).ready(function() {
+			Materialize.updateTextFields();
+
+			 $('.datepicker').pickadate({
+			    selectMonths: true, // Creates a dropdown to control month
+			    selectYears: 100 // Creates a dropdown of 15 years to control year
+			  });
+       
+
+			$("#PassportForm").validate({
+	            rules: {
+	                fname1:  {
+	                    required: true,
+	                    pattern: /^[a-zA-Z ]+$/,
+	                    maxlength: 16
+	                },
+	                lname1:  {
+	                    required: true,
+	                    pattern: /^[a-zA-Z ]+$/,
+	                    maxlength: 16
+	                },
+	                mobile1: {
+	                    required: true,
+	                    digits: true,
+	                    minlength: 10,
+	                    maxlength: 10
+	                },
+					em1: {
+	                    required: true,
+	                    email: true,
+	                    pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	                    maxlength: 64
+	                },
+					address1:  {
+	                    required: true,
+						pattern: /^[a-zA-Z0-9]+$/,
+	                    maxlength: 56
+	                },
+	                dob1:  {
+	                    required: true
+	                },
+	                acn1: {
+	                    required: true,
+						digits:true,
+	                    maxlength: 64
+	                },
+					pcn1: {
+	                    required: true,
+	                    pattern: /^[a-zA-Z0-9]+$/,
+	                    maxlength: 64
+	                },	                
+	                password: {
+	                    required: true,
+	                    minlength: 6,
+	                    maxlength: 32
+	                }
+	            }
+	        });
+		});
+		
+			
+	</script>	
+</body>
+</html>
